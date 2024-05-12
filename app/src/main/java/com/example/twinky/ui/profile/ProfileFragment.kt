@@ -41,7 +41,7 @@ class ProfileFragment : Fragment() {
 
         val btnToRegisterActivity = binding.btnToRegisterActivity
         btnToRegisterActivity.setOnClickListener {
-            val intent = Intent(activity, RegistrActivity::class.java)
+            val intent = Intent(activity, RegisterActivity::class.java)
             startActivity(intent)
         }
         return root

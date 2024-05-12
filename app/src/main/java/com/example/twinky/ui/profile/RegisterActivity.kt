@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class RegistrActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     private var registerName: EditText? = null
     private var registerPhoneInput: EditText? = null
@@ -84,17 +84,17 @@ class RegistrActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 loadingBar!!.dismiss()
                                 Toast.makeText(
-                                    this@RegistrActivity,
+                                    this@RegisterActivity,
                                     "Успешная регистрация",
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 val logintIntent =
-                                    Intent(this@RegistrActivity, LoginActivity::class.java)
+                                    Intent(this@RegisterActivity, LoginActivity::class.java)
                                 startActivity(logintIntent)
                             } else {
                                 loadingBar!!.dismiss()
                                 Toast.makeText(
-                                    this@RegistrActivity,
+                                    this@RegisterActivity,
                                     "Не удалось зарегестрироваться",
                                     Toast.LENGTH_SHORT
                                 ).show()
@@ -103,11 +103,11 @@ class RegistrActivity : AppCompatActivity() {
                 } else {
                     loadingBar!!.dismiss()
                     Toast.makeText(
-                        this@RegistrActivity,
+                        this@RegisterActivity,
                         "Phone number already exists",
                         Toast.LENGTH_LONG
                     ).show()
-                    val logintIntent = Intent(this@RegistrActivity, LoginActivity::class.java)
+                    val logintIntent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(logintIntent)
                 }
             }
