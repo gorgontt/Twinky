@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "236212714481",
+    "project_id": "twinkymain",
+    "storage_bucket": "twinkymain.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236212714481:android:84f69a0a1c619c43b92250",
+        "android_client_info": {
+          "package_name": "com.example.twinky"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWO7GmnY8GkCB4cJwQkn34vtYGUW7tALM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
