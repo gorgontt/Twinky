@@ -78,4 +78,8 @@ dependencies {
     implementation ("com.google.firebase:firebase-core:17.5.1")
     implementation ("com.google.firebase:firebase-ads:10.2.1")
     //implementation (libs.paging.runtime)
+
+    //bottom dialog fragment
+    implementation ("com.google.android.material:material:1.12.0")
+    implementation ("com.makeramen:roundedimageview:2.3.0")
 }
