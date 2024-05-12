@@ -47,6 +47,10 @@ class ProfileFragment : Fragment() {
                 val intentToRegister = Intent(activity, RegisterActivity::class.java)
                 startActivity(intentToRegister)
             }
+            btnToLogin.setOnClickListener {
+                val intentToLogin = Intent(activity, LoginActivity::class.java)
+                startActivity(intentToLogin)
+            }
 
             dialog.setContentView(view)
             dialog.show()

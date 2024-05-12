@@ -72,7 +72,7 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:2.71828")
     implementation ("com.firebaseui:firebase-ui-database:8.0.2")
 
-    //implementation (libs.pilgr.paperdb)
+    implementation ("io.github.pilgr:paperdb:2.7.2")
     //implementation(libs.firebase.auth)
 
     implementation ("com.google.firebase:firebase-core:17.5.1")
