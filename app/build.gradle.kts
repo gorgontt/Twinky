@@ -49,10 +49,33 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-analytics")
+
+    implementation ("com.github.rey5137:material:1.3.1")
+
+    implementation ("com.google.firebase:firebase-database:21.0.0")
+    implementation ("com.google.firebase:firebase-storage:21.0.0")
+
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.squareup.picasso:picasso:2.71828")
+    implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+
+    //implementation (libs.pilgr.paperdb)
+    //implementation(libs.firebase.auth)
+
+    implementation ("com.google.firebase:firebase-core:17.5.1")
+    implementation ("com.google.firebase:firebase-ads:10.2.1")
+    //implementation (libs.paging.runtime)
 }
