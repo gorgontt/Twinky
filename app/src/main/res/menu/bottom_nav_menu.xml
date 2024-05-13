@@ -25,4 +25,5 @@
         android:id="@+id/navigation_profile"
         android:icon="@drawable/profile"
         android:title="@string/title_profile" />
+
 </menu>

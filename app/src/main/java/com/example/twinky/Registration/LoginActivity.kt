@@ -1,4 +1,4 @@
-package com.example.twinky.ui.profile
+package com.example.twinky.Registration
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -13,10 +13,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.twinky.HomeActivity
 import com.example.twinky.Model.Users
 import com.example.twinky.Prevalent.Prevalent
 import com.example.twinky.R
-import com.example.twinky.ui.home.HomeFragment
+import com.example.twinky.databinding.ActivityLoginBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -24,7 +25,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.rey.material.widget.CheckBox
 import io.paperdb.Paper
-
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
@@ -35,10 +35,15 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var rememberMe: CheckBox
     private lateinit var AdminLink: TextView
     private lateinit var notAdminLink: TextView
+
+
+
+    private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.main)
         ) { v: View, insets: WindowInsetsCompat ->
@@ -58,6 +63,7 @@ class LoginActivity : AppCompatActivity() {
         notAdminLink = findViewById(R.id.user_link)
         Paper.init(this)
 
+
         loginButton.setOnClickListener{
             loginUser()
         }
@@ -75,7 +81,9 @@ class LoginActivity : AppCompatActivity() {
             loginButton.text = "Login"
             parentDbName = "Users"
         }
+
     }
+
 
     private fun loginUser() {
         val phone = loginPhoneInput.getText().toString()
@@ -120,9 +128,11 @@ class LoginActivity : AppCompatActivity() {
                                 ).show()
                                 val homeIntent = Intent(
                                     this@LoginActivity,
-                                    HomeFragment::class.java
+                                    HomeActivity::class.java
                                 )
                                 startActivity(homeIntent)
+
+
                             } else if (parentDbName == "Admins") {
                                 loadingBar.dismiss()
                                 Toast.makeText(

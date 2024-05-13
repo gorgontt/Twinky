@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.LoginActivity"
+    tools:context=".Registration.LoginActivity"
     android:background="@drawable/background_register">
 
     <LinearLayout
@@ -107,7 +107,8 @@
             android:text="Войти"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:backgroundTint="@color/green"/>
+            android:backgroundTint="@color/green"
+            android:textAllCaps="false"/>
 
         <TextView
             android:id="@+id/forgot_password_link"

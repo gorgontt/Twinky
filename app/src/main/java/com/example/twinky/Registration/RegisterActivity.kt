@@ -1,4 +1,4 @@
-package com.example.twinky.ui.profile
+package com.example.twinky.Registration
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.twinky.R
+import com.example.twinky.databinding.ActivityRegisterBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -28,21 +29,28 @@ class RegisterActivity : AppCompatActivity() {
     private var loadingBar: ProgressDialog? = null
     private lateinit var registerButton: Button
 
+
+    private lateinit var binding: ActivityRegisterBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.enableEdgeToEdge()
-        setContentView(R.layout.activity_register)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v: View, insets: WindowInsetsCompat ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         registerButton = findViewById(R.id.register_btn)
         registerName = findViewById(R.id.registr_userName_input)
         registerPhoneInput = findViewById(R.id.registr_phone_input)
         registerPasswordInput = findViewById(R.id.registr_password_input)
         registerButton.setOnClickListener{ CreateAccount() }
         loadingBar = ProgressDialog(this)
+
+
     }
 
     private fun CreateAccount() {
@@ -95,7 +103,7 @@ class RegisterActivity : AppCompatActivity() {
                                 loadingBar!!.dismiss()
                                 Toast.makeText(
                                     this@RegisterActivity,
-                                    "Не удалось зарегестрироваться",
+                                    "Не удалось зарегистрироваться",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -104,17 +112,19 @@ class RegisterActivity : AppCompatActivity() {
                     loadingBar!!.dismiss()
                     Toast.makeText(
                         this@RegisterActivity,
-                        "Phone number already exists",
+                        "Номер телефона уже существует",
                         Toast.LENGTH_LONG
                     ).show()
-                    val logintIntent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                    startActivity(logintIntent)
+                    val loginIntent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    startActivity(loginIntent)
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {}
         })
+
+        //    val sharedPref = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        //    sharedPref.edit().putBoolean("user_registered", true).apply()
+
     }
 }
-
-

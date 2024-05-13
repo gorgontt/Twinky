@@ -74,6 +74,7 @@ dependencies {
 
     implementation ("io.github.pilgr:paperdb:2.7.2")
     //implementation(libs.firebase.auth)
+    implementation("com.google.firebase:firebase-auth")
 
     implementation ("com.google.firebase:firebase-core:17.5.1")
     implementation ("com.google.firebase:firebase-ads:10.2.1")
