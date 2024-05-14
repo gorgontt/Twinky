@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Registration.LoginActivity"
-    android:background="@drawable/background_register">
+    android:background="@drawable/background_reg">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/layout_login"
         android:layout_width="280dp"
-        android:layout_height="380dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:background="@drawable/round_style">
 
         <TextView
+            android:id="@+id/tv_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:text="Вход в аккаунт"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/white"
@@ -32,48 +30,64 @@
             android:typeface="sans" />
 
         <LinearLayout
+            android:id="@+id/linear_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_below="@+id/tv_login"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/admin_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green"
+                android:textStyle="italic"
+                android:textSize="12sp"
+                android:text="Войти как админ?" />
 
             <TextView
                 android:id="@+id/user_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User"
-                android:layout_marginLeft="160dp"
+                android:text="Войти как пользователь"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:textColor="@color/green"
                 android:visibility="invisible" />
-            <TextView
-                android:id="@+id/admin_link"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/grey"
-                android:text="Admin" />
 
         </LinearLayout>
 
         <EditText
             android:id="@+id/login_phone_input"
-            android:layout_width="200dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:hint="Телефон"
             android:inputType="number"
+            android:backgroundTint="@color/white"
             android:textColorHint="@color/white"
-            android:layout_marginLeft="30dp"
-            android:textAlignment="viewStart"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:padding="10dp"
+            android:layout_below="@id/linear_login"
+            android:layout_centerHorizontal="true" />
 
         <EditText
             android:id="@+id/login_password_input"
-            android:layout_width="200dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
+            android:layout_below="@id/login_phone_input"
+            android:layout_centerHorizontal="true"
             android:hint="Пароль"
-            android:textColorHint="@color/white"
-            android:layout_marginLeft="30dp"
+            android:backgroundTint="@color/white"
+            android:textStyle="italic"
+            android:padding="10dp"
             android:textAlignment="viewStart"
             android:textColor="@color/white"
-            android:layout_marginBottom="30dp"
+            android:textColorHint="@color/white"
             android:textSize="16sp" />
 
 
@@ -82,14 +96,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="18dp"
             android:layout_below="@+id/login_password_input">
 
             <com.rey.material.widget.CheckBox
                 android:id="@+id/login_check_box"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="italic"
                 style="@style/Material.Drawable.CheckBox"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/white"
                 android:text="Запомнить"/>
 
 
@@ -103,22 +120,47 @@
             android:id="@+id/login_btn"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="Войти"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:backgroundTint="@color/green"
+            android:layout_below="@id/linear_check_box"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
             android:textAllCaps="false"/>
 
-        <TextView
-            android:id="@+id/forgot_password_link"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center"
-            android:textColor="@color/grey"
-            android:text="Forgot password?" />
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_below="@id/login_btn">
 
-    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/forgot_password_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:text="Forgot password | " />
+
+            <TextView
+                android:id="@+id/create_account_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:text="Create account" />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
