@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registration.MainActivity"
+    tools:context=".MainActivity"
     android:background="@color/white">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="186dp"
+        android:layout_height="179dp"
+        android:src="@drawable/frog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/main_login_btn"
-        android:layout_width="300dp"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/green"
-        android:layout_marginTop="350dp"
-        android:textAllCaps="false"
-        android:textColor="@color/grey"
-        android:textSize="16sp"
-        android:text="Вход" />
+        android:text="Twinky"
+        android:textColor="#8BC34A"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:drawableLeft="@drawable/settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.151" />
 
-    <Button
-        android:id="@+id/main_registration_btn"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textAllCaps="false"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/grey"
-        android:layout_below="@id/main_login_btn"
-        android:text="Регистрация"
-        android:textSize="16sp"
-        android:textColor="@color/green"/>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
