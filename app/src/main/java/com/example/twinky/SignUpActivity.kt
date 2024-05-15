@@ -3,16 +3,39 @@ package com.example.twinky
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.twinky.Models.User
 import com.example.twinky.databinding.ActivitySignUpBinding
+import com.example.twinky.utils.USER_NODE
+import com.example.twinky.utils.USER_PROFILE_FOLDER
+import com.example.twinky.utils.uploadImage
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class SignUpActivity : AppCompatActivity() {
 
     val binding by lazy {
         ActivitySignUpBinding.inflate(layoutInflater)
+    }
+
+    lateinit var user: User
+    private val launcher = registerForActivityResult(ActivityResultContracts.GetContent()){uri->
+        uri?.let{
+            uploadImage(uri, USER_PROFILE_FOLDER) {
+                if (it == null) {
+
+                }else {
+                    user.image = it
+                    binding.profileImage.setImageURI(uri)
+                }
+            }
+        }
+
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +46,8 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        user = User()
 
         binding.signUpBtn.setOnClickListener{
 
@@ -41,13 +66,24 @@ class SignUpActivity : AppCompatActivity() {
                     result->
 
                     if (result.isSuccessful){
-                        Toast.makeText(this@SignUpActivity, "Успешный вход", Toast.LENGTH_SHORT).show()
+                        user.userName = binding.editTName.editText?.text.toString()
+                        user.password = binding.editTPassword.editText?.text.toString()
+                        user.email = binding.edTEmail.editText?.text.toString()
+
+                        Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).set(user)
+                            .addOnSuccessListener {
+                                Toast.makeText(this@SignUpActivity, "Login", Toast.LENGTH_SHORT).show()
+                            }
                     } else
                     {
                         Toast.makeText(this@SignUpActivity, result.exception?.localizedMessage, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
+        }
+
+        binding.addImageSignUp.setOnClickListener {
+            launcher.launch("image/*")
         }
     }
 }
