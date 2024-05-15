@@ -100,7 +100,7 @@
         android:layout_marginTop="30dp"
         android:text="Register"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/editT_password"
         app:layout_constraintStart_toStartOf="@+id/editT_password"
         app:layout_constraintTop_toBottomOf="@+id/editT_password" />
@@ -109,8 +109,7 @@
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Уже есть аккаунт? Регистрация"
-        android:textColor="@color/green"
+        android:text="Уже есть аккаунт? Вход "
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

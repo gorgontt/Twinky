@@ -1,6 +1,8 @@
 package com.example.twinky
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -47,6 +49,9 @@ class SignUpActivity : AppCompatActivity() {
             insets
         }
 
+        val text = "<font color=#495551>Уже есть аккаунт? </font> <font color=#BEEF62>Вход</font>"
+        binding.login.setText(Html.fromHtml(text))
+
         user = User()
 
         binding.signUpBtn.setOnClickListener{
@@ -72,7 +77,9 @@ class SignUpActivity : AppCompatActivity() {
 
                         Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).set(user)
                             .addOnSuccessListener {
-                                Toast.makeText(this@SignUpActivity, "Login", Toast.LENGTH_SHORT).show()
+
+                                startActivity(Intent(this@SignUpActivity, HomeActivity::class.java))
+                                finish()
                             }
                     } else
                     {
@@ -84,6 +91,10 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.addImageSignUp.setOnClickListener {
             launcher.launch("image/*")
+        }
+        binding.login.setOnClickListener {
+            startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
+            finish()
         }
     }
 }

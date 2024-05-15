@@ -13,12 +13,15 @@
         android:theme="@style/Theme.Twinky"
         tools:targetApi="31">
         <activity
-            android:name=".SignUpActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
         <activity
             android:name=".Registration.LoginActivity"
             android:exported="false" />
