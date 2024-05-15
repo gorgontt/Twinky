@@ -17,7 +17,9 @@ import com.example.twinky.utils.uploadImage
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -54,7 +56,43 @@ class SignUpActivity : AppCompatActivity() {
 
         user = User()
 
+        if (intent.hasExtra("MODE")){
+            if (intent.getIntExtra("MODE", -1)==1){
+                binding.signUpBtn.text = "Редактировать"
+                Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).get()
+                    .addOnSuccessListener {
+
+                        user = it.toObject<User>()!!
+
+                        if (!user.image.isNullOrEmpty()){
+                            Picasso.get().load(user.image).into(binding.profileImage)
+                        }
+
+                        binding.editTName.editText?.setText(user.userName)
+                        binding.edTEmail.editText?.setText(user.email)
+                        binding.editTPassword.editText?.setText(user.password)
+                    }
+            }
+        }
+
         binding.signUpBtn.setOnClickListener{
+
+            if (intent.hasExtra("MODE")){
+                if (intent.getIntExtra("MODE", -1)==1){
+
+                    Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).set(user)
+                        .addOnSuccessListener {
+
+                            startActivity(Intent(this@SignUpActivity, HomeActivity::class.java))
+                            finish()
+                        }
+
+                }
+
+            }else{
+
+            }
+
 
             if (binding.editTName.editText?.text.toString().equals("") or
                 binding.edTEmail.editText?.text.toString().equals("") or
