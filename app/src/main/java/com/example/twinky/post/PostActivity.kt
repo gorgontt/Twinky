@@ -6,11 +6,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.twinky.Models.Post
 import com.example.twinky.R
 import com.example.twinky.databinding.ActivityPostBinding
+import com.example.twinky.utils.POST
 import com.example.twinky.utils.POST_FOLDER
-import com.example.twinky.utils.USER_PROFILE_FOLDER
 import com.example.twinky.utils.uploadImage
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class PostActivity : AppCompatActivity() {
 
@@ -18,12 +21,16 @@ class PostActivity : AppCompatActivity() {
         ActivityPostBinding.inflate(layoutInflater)
     }
 
+    var imageUrl: String? = null
+
     private val launcher = registerForActivityResult(ActivityResultContracts.GetContent()){ uri->
         uri?.let{
             uploadImage(uri, POST_FOLDER) {
-                if (it != null) {
+                url->
 
+                if (url != null) {
                     binding.selectImage.setImageURI(uri)
+                    imageUrl = url
                 }
             }
         }
@@ -48,6 +55,15 @@ class PostActivity : AppCompatActivity() {
 
         binding.selectImage.setOnClickListener {
             launcher.launch("image/*")
+        }
+
+        binding.createBtn.setOnClickListener {
+
+            val post: Post = Post(imageUrl!!, binding.caption.editText?.text.toString())
+
+            Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
+                finish()
+            }
         }
     }
 }
