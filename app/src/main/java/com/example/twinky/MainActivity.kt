@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,8 +25,11 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, SignUpActivity::class.java))
-            finish()
+            if (FirebaseAuth.getInstance().currentUser == null)
+                startActivity(Intent(this, SignUpActivity::class.java))
+            else
+                startActivity(Intent(this, HomeActivity::class.java))
+                finish()
         }, 2000)
 
     }
