@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.twinky.Models.User
 import com.example.twinky.SignUpActivity
+import com.example.twinky.adapter.ViewPagerAdapter
 import com.example.twinky.databinding.FragmentProfileBinding
 import com.example.twinky.utils.USER_NODE
 import com.google.firebase.auth.ktx.auth
@@ -20,6 +21,7 @@ import com.squareup.picasso.Picasso
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+    private lateinit var viewPagerAdapter: ViewPagerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,6 +40,14 @@ class ProfileFragment : Fragment() {
             activity?.startActivity(intent)
             activity?.finish()
         }
+
+        viewPagerAdapter = ViewPagerAdapter(requireActivity().supportFragmentManager)
+        viewPagerAdapter.addFragment(MyGroupsFragment(), "My Groups")
+        viewPagerAdapter.addFragment(MyReelsFragment(), "My Reels")
+        binding.viewPager.adapter = viewPagerAdapter
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
+
+
         return binding.root
     }
 
