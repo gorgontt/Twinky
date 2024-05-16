@@ -6,12 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.twinky.Models.Post
 import com.example.twinky.Models.Reel
-import com.example.twinky.R
-import com.example.twinky.adapter.MyPostAdapter
-import com.example.twinky.adapter.ReelAdapter
-import com.example.twinky.databinding.FragmentMyGroupsBinding
+import com.example.twinky.adapter.MyReelAdapter
 import com.example.twinky.databinding.FragmentMyReelsBinding
 import com.example.twinky.utils.REEL
 import com.google.firebase.auth.ktx.auth
@@ -37,7 +33,7 @@ class MyReelsFragment : Fragment() {
         binding = FragmentMyReelsBinding.inflate(inflater, container, false)
 
         var reelList = ArrayList<Reel>()
-        var adapter = ReelAdapter(requireContext(), reelList)
+        var adapter = MyReelAdapter(requireContext(), reelList)
         binding.rv.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
         binding.rv.adapter = adapter
 

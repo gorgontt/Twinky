@@ -2,21 +2,20 @@ package com.example.twinky.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.example.twinky.Models.Post
 import com.example.twinky.Models.Reel
-import com.example.twinky.databinding.MyGroupsItemDesignBinding
+import com.example.twinky.R
+import com.example.twinky.databinding.ReelDgBinding
 import com.squareup.picasso.Picasso
 
-class ReelAdapter (var context: Context, var reelList: ArrayList<Reel>): RecyclerView.Adapter<ReelAdapter.ViewHolder>() {
+class ReelAdapter(var context: Context, var reelList: ArrayList<Reel>): RecyclerView.Adapter<ReelAdapter.ViewHolder>(){
 
-    inner class ViewHolder(var binding: MyGroupsItemDesignBinding): RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(var binding: ReelDgBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var binding = MyGroupsItemDesignBinding.inflate(LayoutInflater.from(context), parent, false)
+        var binding = ReelDgBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -25,6 +24,13 @@ class ReelAdapter (var context: Context, var reelList: ArrayList<Reel>): Recycle
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Glide.with(context).load(reelList.get(position).reelUtl).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.binding.postImage)
+
+        Picasso.get().load(reelList.get(position).profileLink).placeholder(R.drawable.profile).into(holder.binding.profileImage)
+        holder.binding.caption.setText(reelList.get(position).caption)
+        holder.binding.videoView.setVideoPath(reelList.get(position).reelUtl)
+        holder.binding.progressBar.visibility = View.GONE
+        holder.binding.videoView.setOnPreparedListener {
+            holder.binding.videoView.start()
+        }
     }
 }
