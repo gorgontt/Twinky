@@ -1,11 +1,13 @@
 package com.example.twinky.post
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.twinky.HomeActivity
 import com.example.twinky.Models.Post
 import com.example.twinky.R
 import com.example.twinky.databinding.ActivityPostBinding
@@ -51,11 +53,17 @@ class PostActivity : AppCompatActivity() {
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
         getSupportActionBar()?.setDisplayShowHomeEnabled(true)
         binding.materialToolbar.setNavigationOnClickListener {
+            startActivity(Intent(this@PostActivity, HomeActivity::class.java))
             finish()
         }
 
         binding.selectImage.setOnClickListener {
             launcher.launch("image/*")
+        }
+
+        binding.exitBtn.setOnClickListener {
+            startActivity(Intent(this@PostActivity, HomeActivity::class.java))
+            finish()
         }
 
         binding.createBtn.setOnClickListener {
@@ -64,7 +72,7 @@ class PostActivity : AppCompatActivity() {
 
             Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
                 Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(post).addOnSuccessListener {
-
+                    startActivity(Intent(this@PostActivity, HomeActivity::class.java))
                     finish()
                 }
             }
