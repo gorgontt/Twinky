@@ -12,6 +12,7 @@ import com.example.twinky.databinding.ActivityPostBinding
 import com.example.twinky.utils.POST
 import com.example.twinky.utils.POST_FOLDER
 import com.example.twinky.utils.uploadImage
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -62,7 +63,10 @@ class PostActivity : AppCompatActivity() {
             val post: Post = Post(imageUrl!!, binding.caption.editText?.text.toString())
 
             Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
-                finish()
+                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(post).addOnSuccessListener {
+
+                    finish()
+                }
             }
         }
     }
