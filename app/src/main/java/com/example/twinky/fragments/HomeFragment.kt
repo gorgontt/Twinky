@@ -1,20 +1,29 @@
 package com.example.twinky.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.twinky.Models.Post
 import com.example.twinky.R
-import com.example.twinky.SignUpActivity
+import com.example.twinky.adapter.PostAdapter
 import com.example.twinky.databinding.FragmentHomeBinding
-import com.example.twinky.databinding.FragmentProfileBinding
+import com.example.twinky.utils.POST
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private var postList = ArrayList<Post>()
+    private lateinit var adapter: PostAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,12 +36,35 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        adapter = PostAdapter(requireContext(), postList)
+        binding.postRv.layoutManager = LinearLayoutManager(requireContext())
+        binding.postRv.adapter = adapter
 
-        binding.exitBtn.setOnClickListener {
+
+        setHasOptionsMenu(true)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.materialToolbar2)
+
+        Firebase.firestore.collection(POST).get().addOnSuccessListener {
+
+            var tempList = ArrayList<Post>()
+            postList.clear()
+
+            for (i in it.documents){
+
+                var post: Post = i.toObject<Post>()!!
+                tempList.add(post)
+            }
+            postList.addAll(tempList)
+            adapter.notifyDataSetChanged()
+        }
+
+    /*    binding.exitBtn.setOnClickListener {
             val intent = Intent(activity, SignUpActivity::class.java)
             activity?.startActivity(intent)
             activity?.finish()
         }
+
+     */
         return binding.root
 
 
@@ -40,5 +72,10 @@ class HomeFragment : Fragment() {
 
     companion object {
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.option_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 }

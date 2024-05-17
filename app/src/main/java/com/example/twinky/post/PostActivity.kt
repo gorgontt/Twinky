@@ -9,13 +9,16 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.twinky.HomeActivity
 import com.example.twinky.Models.Post
+import com.example.twinky.Models.User
 import com.example.twinky.R
 import com.example.twinky.databinding.ActivityPostBinding
 import com.example.twinky.utils.POST
 import com.example.twinky.utils.POST_FOLDER
+import com.example.twinky.utils.USER_NODE
 import com.example.twinky.utils.uploadImage
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class PostActivity : AppCompatActivity() {
@@ -68,14 +71,22 @@ class PostActivity : AppCompatActivity() {
 
         binding.createBtn.setOnClickListener {
 
-            val post: Post = Post(imageUrl!!, binding.caption.editText?.text.toString())
+            Firebase.firestore.collection(USER_NODE).document().get().addOnSuccessListener {
 
-            Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
-                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(post).addOnSuccessListener {
-                    startActivity(Intent(this@PostActivity, HomeActivity::class.java))
-                    finish()
+                var user = it.toObject<User>()!!
+                val post: Post = Post(postUtl = imageUrl!!, caption = binding.caption.editText?.text.toString(), uid = Firebase.auth.currentUser!!.uid, time = System.currentTimeMillis().toString()
+                )
+
+                Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
+                    Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(post).addOnSuccessListener {
+                        startActivity(Intent(this@PostActivity, HomeActivity::class.java))
+                        finish()
+                    }
                 }
+
             }
+
+
         }
     }
 }
