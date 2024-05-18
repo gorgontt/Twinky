@@ -32,7 +32,7 @@ class MyReelsFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentMyReelsBinding.inflate(inflater, container, false)
 
-        var reelList = ArrayList<Reel>()
+    /*    var reelList = ArrayList<Reel>()
         var adapter = MyReelAdapter(requireContext(), reelList)
         binding.rv.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
         binding.rv.adapter = adapter
@@ -48,6 +48,8 @@ class MyReelsFragment : Fragment() {
             adapter.notifyDataSetChanged()
 
         }
+
+     */
 
         return binding.root
     }

@@ -29,19 +29,20 @@ class ReelsActivity : AppCompatActivity() {
     val binding by lazy {
         ActivityReelsBinding.inflate(layoutInflater)
     }
-    lateinit var progressDialog: ProgressDialog
-    private lateinit var videoUrl: String
-    private val launcher = registerForActivityResult(ActivityResultContracts.GetContent()){ uri->
-        uri?.let{
-            uploadVideo(uri, REEL_FOLDER, progressDialog) { url->
+   // lateinit var progressDialog: ProgressDialog
+   // private lateinit var videoUrl: String
+//    private val launcher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+//        uri?.let {
+//            uploadVideo(uri, REEL_FOLDER, progressDialog) { url ->
+//
+//                if (url != null) {
+//                    videoUrl = url
+//                }
+//            }
+//        }
+//
+//    }
 
-                if (url != null) {
-                    videoUrl = url
-                }
-            }
-        }
-
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -52,31 +53,33 @@ class ReelsActivity : AppCompatActivity() {
             insets
         }
 
-        progressDialog = ProgressDialog(this)
-
-        binding.selectReel.setOnClickListener {
-            launcher.launch("video/*")
-        }
-
-        binding.exitBtn.setOnClickListener {
-            startActivity(Intent(this@ReelsActivity, HomeActivity::class.java))
-            finish()
-        }
-
-        binding.createBtn.setOnClickListener {
-            Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
-                var user: User = it.toObject<User>()!!
-
-                val reel: Reel = Reel(videoUrl!!, binding.caption.editText?.text.toString(), user.image!!)
-
-                Firebase.firestore.collection(REEL).document().set(reel).addOnSuccessListener {
-                    Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REEL).document().set(reel).addOnSuccessListener {
-                        startActivity(Intent(this@ReelsActivity, HomeActivity::class.java))
-                        finish()
-                    }
-                }
-            }
-
-        }
+//        progressDialog = ProgressDialog(this)
+//
+//        binding.selectReel.setOnClickListener {
+//            launcher.launch("video/*")
+//        }
+//
+//        binding.exitBtn.setOnClickListener {
+//            startActivity(Intent(this@ReelsActivity, HomeActivity::class.java))
+//            finish()
+//        }
+//
+//        binding.createBtn.setOnClickListener {
+//            Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+//                var user: User = it.toObject<User>()!!
+//
+//                val reel: Reel = Reel(videoUrl!!, binding.caption.editText?.text.toString(), user.image!!)
+//
+//                Firebase.firestore.collection(REEL).document().set(reel).addOnSuccessListener {
+//                    Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REEL).document().set(reel).addOnSuccessListener {
+//                        startActivity(Intent(this@ReelsActivity, HomeActivity::class.java))
+//                        finish()
+//                    }
+//                }
+//            }
+//
+//        }
     }
 }
+
+

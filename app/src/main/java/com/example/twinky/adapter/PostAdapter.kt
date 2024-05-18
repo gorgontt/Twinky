@@ -6,13 +6,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.twinky.Models.Post
-import com.example.twinky.Models.Reel
 import com.example.twinky.Models.User
 import com.example.twinky.R
-import com.example.twinky.databinding.MyGroupsItemDesignBinding
 import com.example.twinky.databinding.PostRvBinding
+import com.example.twinky.post.ItemRecyclerActivity
 import com.example.twinky.utils.USER_NODE
 import com.github.marlonlom.utilities.timeago.TimeAgo
 import com.google.firebase.firestore.ktx.firestore
@@ -66,6 +64,16 @@ class PostAdapter (var context: Context, var postList: ArrayList<Post>): Recycle
 
             holder.binding.like.setImageResource(R.drawable.red_like)
 
+        }
+
+
+        holder.binding.postImg.setOnClickListener {
+
+            val intent = Intent(context, ItemRecyclerActivity::class.java)
+            intent.putExtra("NamePost", postList.get(position).nameGroup)
+            intent.putExtra("ImagePost", postList.get(position).postUtl)
+            intent.putExtra("CaptionPost", postList.get(position).caption)
+            context.startActivity(intent)
         }
 
     }

@@ -30,7 +30,7 @@ class ReelFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentReelBinding .inflate(inflater, container, false)
-        adapter = ReelAdapter(requireContext(), reelList)
+     /*   adapter = ReelAdapter(requireContext(), reelList)
         binding.viewPager.adapter = adapter
         Firebase.firestore.collection(REEL).get().addOnSuccessListener {
             var tempList = ArrayList<Reel>()
@@ -45,6 +45,8 @@ class ReelFragment : Fragment() {
             reelList.reverse()
             adapter.notifyDataSetChanged()
         }
+
+      */
 
         return binding.root
     }
