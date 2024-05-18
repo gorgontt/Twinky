@@ -72,10 +72,12 @@ class PostActivity : AppCompatActivity() {
 
         binding.createBtn.setOnClickListener {
             val caption = binding.caption.editText?.text.toString()
+            val nameGroup = binding.nameOfGroupEdT.editText?.text.toString()
             if (caption.isNotEmpty() && imageUrl != null) {
                 val post = Post(
                     postUtl = imageUrl!!,
                     caption = caption,
+                    nameGroup = nameGroup,
                     uid = Firebase.auth.currentUser!!.uid,
                     time = System.currentTimeMillis().toString()
                 )

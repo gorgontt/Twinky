@@ -32,11 +32,20 @@ class MyPostAdapter (var context: Context, var postList: ArrayList<Post>): Recyc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        try {
+        val post = postList[position]
+
+        holder.binding.nameOfGroup.text = post.nameGroup
+        Glide.with(context).load(post.postUtl).placeholder(R.drawable.loading).into(holder.binding.postImage)
+
+        // Remove the redundant line below as you have already set the nameOfGroup above
+        // holder.binding.nameOfGroup.text = post.nameGroup
+        Picasso.get().load(post.postUtl).into(holder.binding.postImage)
+
+        /*try {
             Firebase.firestore.collection(USER_NODE).document(postList.get(position).uid).get().addOnSuccessListener {
 
                 var post = it.toObject<Post>()
-                holder.binding.nameOfGroup.text = post?.caption
+                holder.binding.nameOfGroup.text = post?.nameGroup
             }
         }catch (e: Exception){
 
@@ -47,8 +56,10 @@ class MyPostAdapter (var context: Context, var postList: ArrayList<Post>): Recyc
 
 
         //holder.binding.time.text = postList.get(position).time
-        holder.binding.nameOfGroup.text = postList.get(position).caption
+        holder.binding.nameOfGroup.text = postList.get(position).nameGroup
 
         Picasso.get().load(postList.get(position).postUtl).into(holder.binding.postImage)
+
+         */
     }
 }

@@ -6,6 +6,7 @@ class Post {
     var caption: String = ""
     var uid: String = ""
     var time: String = ""
+    var nameGroup: String = ""
 
 
     constructor()
@@ -22,7 +23,13 @@ class Post {
         this.time = time
     }
 
-
+    constructor(postUtl: String, caption: String, uid: String, time: String, nameGroup: String) {
+        this.postUtl = postUtl
+        this.caption = caption
+        this.uid = uid
+        this.time = time
+        this.nameGroup = nameGroup
+    }
 
 
 }
