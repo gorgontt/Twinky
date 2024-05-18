@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         adapter = PostAdapter(requireContext(), postList)
         //binding.postRv.layoutManager = LinearLayoutManager(requireContext())
-        binding.postRv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.postRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.postRv.adapter = adapter
 
 
