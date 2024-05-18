@@ -69,6 +69,7 @@ class PostActivity : AppCompatActivity() {
             startActivity(Intent(this@PostActivity, HomeActivity::class.java))
             finish()
         }
+
         binding.createBtn.setOnClickListener {
             val caption = binding.caption.editText?.text.toString()
             if (caption.isNotEmpty() && imageUrl != null) {
