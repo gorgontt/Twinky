@@ -60,11 +60,13 @@
             android:layout_height="300dp"
             android:src="@drawable/loading" />
 
+
         <TextView
             android:id="@+id/caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:paddingLeft="20dp"
+            android:text="caption" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

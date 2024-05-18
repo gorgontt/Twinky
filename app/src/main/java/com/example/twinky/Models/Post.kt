@@ -7,6 +7,7 @@ class Post {
     var uid: String = ""
     var time: String = ""
 
+
     constructor()
 
     constructor(postUtl: String, caption: String) {
@@ -20,5 +21,8 @@ class Post {
         this.uid = uid
         this.time = time
     }
+
+
+
 
 }
