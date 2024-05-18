@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.twinky.Models.Post
 import com.example.twinky.Models.User
 import com.example.twinky.R
@@ -44,7 +45,8 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         adapter = PostAdapter(requireContext(), postList)
-        binding.postRv.layoutManager = LinearLayoutManager(requireContext())
+        //binding.postRv.layoutManager = LinearLayoutManager(requireContext())
+        binding.postRv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.postRv.adapter = adapter
 
 

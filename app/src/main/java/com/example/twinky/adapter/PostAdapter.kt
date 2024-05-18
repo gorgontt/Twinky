@@ -61,7 +61,7 @@ class PostAdapter (var context: Context, var postList: ArrayList<Post>): Recycle
             context.startActivity(i)
         }
         //holder.binding.time.text = postList.get(position).time
-        holder.binding.caption.text = postList.get(position).caption
+        holder.binding.nameGroup.text = postList.get(position).nameGroup
         holder.binding.like.setOnClickListener {
 
             holder.binding.like.setImageResource(R.drawable.red_like)
