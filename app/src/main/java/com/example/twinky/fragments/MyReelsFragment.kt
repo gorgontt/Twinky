@@ -1,15 +1,20 @@
 package com.example.twinky.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.twinky.Models.Reel
+import com.example.twinky.SignUpActivity
 import com.example.twinky.adapter.MyReelAdapter
 import com.example.twinky.databinding.FragmentMyReelsBinding
+import com.example.twinky.post.NewMessageActivity
 import com.example.twinky.utils.REEL
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -32,27 +37,24 @@ class MyReelsFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentMyReelsBinding.inflate(inflater, container, false)
 
-    /*    var reelList = ArrayList<Reel>()
-        var adapter = MyReelAdapter(requireContext(), reelList)
-        binding.rv.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
-        binding.rv.adapter = adapter
+    /*    binding.add.setOnClickListener {
+            val intent = Intent(requireContext(), NewMessageActivity::class.java )
+            startActivity(intent)
+        }
 
-        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REEL).get().addOnSuccessListener {
-
-            var tempList = arrayListOf<Reel>()
-            for (i in it.documents){
-                var reel: Reel = i.toObject<Reel>()!!
-                tempList.add(reel)
-            }
-            reelList.addAll(tempList)
-            adapter.notifyDataSetChanged()
-
+        binding.logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intentLog = Intent(requireContext(), SignUpActivity::class.java)
+            intentLog.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intentLog)
         }
 
      */
 
         return binding.root
     }
+
+
 
     companion object {
 

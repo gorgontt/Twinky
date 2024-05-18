@@ -1,14 +1,18 @@
 package com.example.twinky.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.twinky.Models.Reel
+import com.example.twinky.SignUpActivity
 import com.example.twinky.adapter.ReelAdapter
 import com.example.twinky.databinding.FragmentReelBinding
+import com.example.twinky.post.NewMessageActivity
 import com.example.twinky.utils.REEL
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
@@ -47,6 +51,18 @@ class ReelFragment : Fragment() {
         }
 
       */
+
+        binding.add.setOnClickListener {
+            val intent = Intent(requireContext(), NewMessageActivity::class.java )
+            startActivity(intent)
+        }
+
+        binding.logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intentLog = Intent(requireContext(), SignUpActivity::class.java)
+            intentLog.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intentLog)
+        }
 
         return binding.root
     }

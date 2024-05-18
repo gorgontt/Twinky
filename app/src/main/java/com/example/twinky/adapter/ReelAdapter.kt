@@ -25,12 +25,6 @@ class ReelAdapter(var context: Context, var reelList: ArrayList<Reel>): Recycler
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        Picasso.get().load(reelList.get(position).profileLink).placeholder(R.drawable.profile).into(holder.binding.profileImage)
-        holder.binding.caption.setText(reelList.get(position).caption)
-        holder.binding.videoView.setVideoPath(reelList.get(position).reelUtl)
-        holder.binding.progressBar.visibility = View.GONE
-        holder.binding.videoView.setOnPreparedListener {
-            holder.binding.videoView.start()
-        }
+
     }
 }

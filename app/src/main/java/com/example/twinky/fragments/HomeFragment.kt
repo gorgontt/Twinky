@@ -128,11 +128,17 @@ class HomeFragment : Fragment() {
 
     private fun prepareMovieData() {
 
-        var movie = MovieModel("Mad Max: Fury Road", R.drawable.like)
+        var movie = MovieModel("Cookie together", R.drawable.cooking)
         popularList.add(movie)
-        movie = MovieModel("Inside Out", R.drawable.loading)
+        movie = MovieModel("Queen", R.drawable.queen)
         popularList.add(movie)
-        movie = MovieModel("Star Wars: Episode VII - The Force Awakens", R.drawable.add)
+        movie = MovieModel("Harry Potter", R.drawable.harry_potter)
+        popularList.add(movie)
+        movie = MovieModel("Froggies", R.drawable.frog_item)
+        popularList.add(movie)
+        movie = MovieModel("Sport", R.drawable.sport)
+        popularList.add(movie)
+        movie = MovieModel("Taty", R.drawable.tatoo)
         popularList.add(movie)
 
 
