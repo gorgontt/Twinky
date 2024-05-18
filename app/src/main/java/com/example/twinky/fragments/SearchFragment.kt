@@ -10,6 +10,7 @@ import com.example.twinky.Models.User
 import com.example.twinky.adapter.SearchAdapter
 import com.example.twinky.databinding.FragmentSearchBinding
 import com.example.twinky.utils.USER_NODE
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
@@ -42,17 +43,48 @@ class SearchFragment : Fragment() {
             var tempList = ArrayList<User>()
             userList.clear()
             for (i in it.documents){
+                if (i.id.toString().equals(Firebase.auth.currentUser!!.uid.toString())){
 
-                var user: User = i.toObject<User>()!!
-                tempList.add(user)
+                }else{
+
+                    var user: User = i.toObject<User>()!!
+                    tempList.add(user)
+                }
+
             }
             userList.addAll(tempList)
             adapter.notifyDataSetChanged()
         }
 
 
-        binding.searchView.setOnSearchClickListener {
+        binding.searchBtn.setOnClickListener {
 
+            var text = binding.searchView.text.toString()
+
+            Firebase.firestore.collection(USER_NODE).whereEqualTo("userName", text).get().addOnSuccessListener {
+
+                var tempList = ArrayList<User>()
+                userList.clear()
+
+                if (it.isEmpty){
+
+                }else{
+
+                    for (i in it.documents){
+                        if (i.id.toString().equals(Firebase.auth.currentUser!!.uid.toString())){
+
+                        }else{
+
+                            var user: User = i.toObject<User>()!!
+                            tempList.add(user)
+                        }
+
+                    }
+                    userList.addAll(tempList)
+                    adapter.notifyDataSetChanged()
+                }
+
+            }
 
         }
 

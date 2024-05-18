@@ -10,10 +10,14 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.twinky.Models.Post
+import com.example.twinky.Models.User
 import com.example.twinky.R
+import com.example.twinky.adapter.FollowRvAdapter
 import com.example.twinky.adapter.PostAdapter
 import com.example.twinky.databinding.FragmentHomeBinding
+import com.example.twinky.utils.FOLLOW
 import com.example.twinky.utils.POST
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -24,6 +28,9 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private var postList = ArrayList<Post>()
     private lateinit var adapter: PostAdapter
+
+    private var followList = ArrayList<User>()
+    private lateinit var followAdapter: FollowRvAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +46,26 @@ class HomeFragment : Fragment() {
         adapter = PostAdapter(requireContext(), postList)
         binding.postRv.layoutManager = LinearLayoutManager(requireContext())
         binding.postRv.adapter = adapter
+
+
+        followAdapter = FollowRvAdapter(requireContext(), followList)
+        binding.followRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.followRv.adapter = followAdapter
+
+        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOW).get().addOnSuccessListener{
+
+            var tempList = ArrayList<User>()
+            followList.clear()
+
+            for (i in it.documents){
+
+                var user: User = i.toObject<User>()!!
+                tempList.add(user)
+            }
+            followList.addAll(tempList)
+            followAdapter.notifyDataSetChanged()
+
+        }
 
 
         setHasOptionsMenu(true)

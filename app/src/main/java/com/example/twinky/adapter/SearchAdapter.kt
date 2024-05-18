@@ -8,6 +8,10 @@ import com.bumptech.glide.Glide
 import com.example.twinky.Models.User
 import com.example.twinky.R
 import com.example.twinky.databinding.SearchRvBinding
+import com.example.twinky.utils.FOLLOW
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class SearchAdapter (var context: Context, var userList: ArrayList<User>): RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
@@ -24,7 +28,43 @@ class SearchAdapter (var context: Context, var userList: ArrayList<User>): Recyc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+        var isfollow = false
+
         Glide.with(context).load(userList.get(position).image).placeholder(R.drawable.frog).into(holder.binding.userImage)
         holder.binding.name.text = userList.get(position).userName
+
+        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOW).whereEqualTo("email", userList.get(position).email)
+            .get().addOnSuccessListener {
+
+                if (it.documents.size == 0){
+                    isfollow = false
+                }else{
+                    holder.binding.followBtn.text = "UnFollow"
+                    isfollow = true
+                }
+            }
+
+        holder.binding.followBtn.setOnClickListener {
+
+            if (isfollow){
+
+                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOW).whereEqualTo("email", userList.get(position).email)
+                    .get().addOnSuccessListener {
+
+                        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOW).document(it.documents.get(0).id).delete()
+                        holder.binding.followBtn.text = "follow"
+                        isfollow = false
+                    }
+
+            }else{
+
+                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOW)
+                    .document().set(userList.get(position))
+                holder.binding.followBtn.text = "UnFollow"
+                isfollow = true
+
+            }
+
+        }
     }
 }
