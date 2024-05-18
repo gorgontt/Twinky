@@ -7,13 +7,15 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.twinky.Models.MovieModel
 import com.example.twinky.Models.Post
 import com.example.twinky.Models.User
 import com.example.twinky.R
 import com.example.twinky.adapter.FollowRvAdapter
+import com.example.twinky.adapter.PopularRvAdapter
 import com.example.twinky.adapter.PostAdapter
 import com.example.twinky.databinding.FragmentHomeBinding
 import com.example.twinky.utils.FOLLOW
@@ -33,6 +35,9 @@ class HomeFragment : Fragment() {
     private var followList = ArrayList<User>()
     private lateinit var followAdapter: FollowRvAdapter
 
+    private var popularList = ArrayList<MovieModel>()
+    private lateinit var popularAdapter: PopularRvAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -50,9 +55,22 @@ class HomeFragment : Fragment() {
         binding.postRv.adapter = adapter
 
 
+
         followAdapter = FollowRvAdapter(requireContext(), followList)
         binding.followRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.followRv.adapter = followAdapter
+
+
+
+        popularAdapter = PopularRvAdapter(popularList)
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.popularRv.itemAnimator = DefaultItemAnimator()
+        //binding.popularRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.popularRv.layoutManager = layoutManager
+        binding.popularRv.adapter = popularAdapter
+        prepareMovieData()
+
+
 
         Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOW).get().addOnSuccessListener{
 
@@ -71,7 +89,7 @@ class HomeFragment : Fragment() {
 
 
         setHasOptionsMenu(true)
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.materialToolbar2)
+//        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.materialToolbar2)
 
         Firebase.firestore.collection(POST).get().addOnSuccessListener {
 
@@ -106,5 +124,18 @@ class HomeFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.option_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun prepareMovieData() {
+
+        var movie = MovieModel("Mad Max: Fury Road", R.drawable.like)
+        popularList.add(movie)
+        movie = MovieModel("Inside Out", R.drawable.loading)
+        popularList.add(movie)
+        movie = MovieModel("Star Wars: Episode VII - The Force Awakens", R.drawable.add)
+        popularList.add(movie)
+
+
+        popularAdapter.notifyDataSetChanged()
     }
 }
