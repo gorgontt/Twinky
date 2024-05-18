@@ -2,6 +2,7 @@ package com.example.twinky.post
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -68,13 +69,44 @@ class PostActivity : AppCompatActivity() {
             startActivity(Intent(this@PostActivity, HomeActivity::class.java))
             finish()
         }
-
         binding.createBtn.setOnClickListener {
+            val caption = binding.caption.editText?.text.toString()
+            if (caption.isNotEmpty() && imageUrl != null) {
+                val post = Post(
+                    postUtl = imageUrl!!,
+                    caption = caption,
+                    uid = Firebase.auth.currentUser!!.uid,
+                    time = System.currentTimeMillis().toString()
+                )
+
+                Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
+                    Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(post).addOnSuccessListener {
+                        startActivity(Intent(this@PostActivity, HomeActivity::class.java))
+                        finish()
+                    }.addOnFailureListener { e ->
+                        // Обработка ошибки
+                        Log.e("PostActivity", "Error setting document", e)
+                    }
+                }.addOnFailureListener { e ->
+                    // Обработка ошибки
+                    Log.e("PostActivity", "Error setting document", e)
+                }
+            } else {
+                // Обработка случая, когда caption пустое или imageUrl не установлен
+                Log.e("PostActivity", "Caption is empty or imageUrl is not set")
+            }
+        }
+
+        /*binding.createBtn.setOnClickListener {
 
             Firebase.firestore.collection(USER_NODE).document().get().addOnSuccessListener {
 
                 var user = it.toObject<User>()!!
-                val post: Post = Post(postUtl = imageUrl!!, caption = binding.caption.editText?.text.toString(), uid = Firebase.auth.currentUser!!.uid, time = System.currentTimeMillis().toString()
+                val post: Post = Post(
+                    postUtl = imageUrl!!,
+                    caption = binding.caption.editText?.text.toString(),
+                    uid = Firebase.auth.currentUser!!.uid,
+                    time = System.currentTimeMillis().toString()
                 )
 
                 Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
@@ -88,5 +120,7 @@ class PostActivity : AppCompatActivity() {
 
 
         }
+
+         */
     }
 }

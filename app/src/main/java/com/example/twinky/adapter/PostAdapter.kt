@@ -46,6 +46,10 @@ class PostAdapter (var context: Context, var postList: ArrayList<Post>): Recycle
         Glide.with(context).load(postList.get(position).postUtl).placeholder(R.drawable.loading).into(holder.binding.postImg)
         holder.binding.time.text = postList.get(position).time
         holder.binding.caption.text = postList.get(position).caption
+        holder.binding.like.setOnClickListener {
+            holder.binding.like.setImageResource(R.drawable.red_like)
+
+        }
 
     }
 }
