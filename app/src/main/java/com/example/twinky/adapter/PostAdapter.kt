@@ -66,6 +66,12 @@ class PostAdapter (var context: Context, var postList: ArrayList<Post>): Recycle
 
         }
 
+        holder.binding.favourites.setOnClickListener {
+
+            holder.binding.favourites.setImageResource(R.drawable.bookmark)
+
+        }
+
 
         holder.binding.postImg.setOnClickListener {
 
