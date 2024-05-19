@@ -71,8 +71,8 @@ class PostActivity : AppCompatActivity() {
         }
 
         binding.createBtn.setOnClickListener {
-            val caption = binding.caption.editText?.text.toString()
-            val nameGroup = binding.nameOfGroupEdT.editText?.text.toString()
+            val caption = binding.caption.text.toString()
+            val nameGroup = binding.nameOfGroupEdT.text.toString()
             if (caption.isNotEmpty() && imageUrl != null) {
                 val post = Post(
                     postUtl = imageUrl!!,

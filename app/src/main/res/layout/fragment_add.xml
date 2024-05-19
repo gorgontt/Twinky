@@ -3,30 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bottom_sheet_design"
-    android:orientation="horizontal"
+    android:background="@drawable/round_style"
+    android:orientation="vertical"
     android:gravity="center|top"
     tools:context=".fragments.AddFragment">
+
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/green"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:id="@+id/post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="@drawable/bottom_sheet_design"
-        android:layout_margin="100dp"
+        android:layout_margin="40dp"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/home"/>
+            android:src="@drawable/home" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:text="Создать группу"/>
+            android:text="Создать группу"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            android:textStyle="italic" />
 
     </LinearLayout>
 

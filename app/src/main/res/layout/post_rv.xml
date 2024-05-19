@@ -39,8 +39,8 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_gravity="right|bottom"
-        android:layout_marginBottom="40dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:src="@drawable/like" />
 
     <ImageView
@@ -48,9 +48,10 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_gravity="right|bottom"
-        android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
-        android:src="@drawable/send" />
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/send"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/favourites"

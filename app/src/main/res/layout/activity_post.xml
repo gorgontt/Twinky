@@ -23,154 +23,206 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/select_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/add"
-        app:layout_constraintEnd_toEndOf="@+id/materialToolbar"
-        app:layout_constraintStart_toStartOf="@+id/materialToolbar"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/select_image"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/camera"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="@+id/materialToolbar"
+                app:layout_constraintStart_toStartOf="@+id/materialToolbar"
+                app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
 
 
 
-    <TextView
-        android:id="@+id/tv_name_of_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="Название группы"
-        app:layout_constraintEnd_toEndOf="@+id/select_image"
-        app:layout_constraintStart_toStartOf="@+id/select_image"
-        app:layout_constraintTop_toBottomOf="@+id/select_image" />
+            <TextView
+                android:id="@+id/tv_name_of_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="Название группы"
+                android:textSize="16dp"
+                android:paddingLeft="5dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/select_image"
+                app:layout_constraintStart_toStartOf="@+id/select_image"
+                app:layout_constraintTop_toBottomOf="@+id/select_image" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/name_of_group_edT"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="name of group"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_of_group">
+            <EditText
+                android:id="@+id/name_of_group_edT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:hint="Введите название группы"
+                android:textStyle="italic"
+                android:background="@drawable/round_style"
+                android:padding="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_name_of_group"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_of_group"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name_of_group"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:visibility="visible" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tv_caption_of_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="Описание группы"
+                android:textSize="16dp"
+                android:paddingLeft="5dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/name_of_group_edT"
+                app:layout_constraintStart_toStartOf="@+id/name_of_group_edT"
+                app:layout_constraintTop_toBottomOf="@+id/name_of_group_edT" />
 
-    <TextView
-        android:id="@+id/tv_caption_of_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="Описание группы"
-        app:layout_constraintEnd_toEndOf="@+id/name_of_group_edT"
-        app:layout_constraintStart_toStartOf="@+id/name_of_group_edT"
-        app:layout_constraintTop_toBottomOf="@+id/name_of_group_edT" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/caption"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="caption of group"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_caption_of_group">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:visibility="visible" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:hint="Введите описание группы"
+                android:background="@drawable/round_style"
+                android:padding="5dp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/tv_caption_of_group"
+                app:layout_constraintStart_toStartOf="@+id/tv_caption_of_group"
+                app:layout_constraintTop_toBottomOf="@+id/tv_caption_of_group"/>
 
 
-    <TextView
-        android:id="@+id/tv_name_of_chat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="name of chat"
-        app:layout_constraintEnd_toEndOf="@+id/caption"
-        app:layout_constraintStart_toStartOf="@+id/caption"
-        app:layout_constraintTop_toBottomOf="@+id/caption" />
+            <TextView
+                android:id="@+id/tv_name_of_chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="Название чата"
+                android:textSize="16dp"
+                android:paddingLeft="5dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/caption"
+                app:layout_constraintStart_toStartOf="@+id/caption"
+                app:layout_constraintTop_toBottomOf="@+id/caption" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/name_chat_edT"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="name of chat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_of_chat">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:visibility="visible" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/name_chat_edT"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="@+id/name_chat_edT"
-        app:layout_constraintTop_toBottomOf="@+id/name_chat_edT">
-
-        <Button
-            android:id="@+id/exit_btn"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:strokeColor="@color/green"
-            android:text="Отмена"
-            android:textColor="@color/grey"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/edT_password_login"
-            app:layout_constraintStart_toStartOf="@+id/edT_password_login"
-            app:layout_constraintTop_toBottomOf="@+id/edT_password_login" />
-
-        <Button
-            android:id="@+id/create_btn"
-            style="@style/Widget.Material3.Button.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:shadowColor="@color/green"
-            android:text="Создать"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/login_btn"
-            app:layout_constraintStart_toStartOf="@+id/login_btn"
-            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+            <EditText
+                android:id="@+id/name_chat_edT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:hint="Введите описание группы"
+                android:background="@drawable/round_style"
+                android:padding="5dp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/tv_name_of_chat"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_of_chat"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name_of_chat"/>
 
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/name_chat_edT"
+                app:layout_constraintHorizontal_bias="0.517"
+                app:layout_constraintStart_toStartOf="@+id/name_chat_edT"
+                app:layout_constraintTop_toBottomOf="@+id/name_chat_edT">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:text="Сделать группу секретной?"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/ll"
+                app:layout_constraintHorizontal_bias="0.517"
+                app:layout_constraintStart_toStartOf="@+id/ll"
+                app:layout_constraintTop_toBottomOf="@+id/ll">
+
+                <Button
+                    android:id="@+id/exit_btn"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:strokeColor="@color/green"
+                    android:text="Отмена"
+                    android:textColor="@color/grey"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/edT_password_login"
+                    app:layout_constraintStart_toStartOf="@+id/edT_password_login"
+                    app:layout_constraintTop_toBottomOf="@+id/edT_password_login" />
+
+                <Button
+                    android:id="@+id/create_btn"
+                    style="@style/Widget.Material3.Button.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:shadowColor="@color/green"
+                    android:text="Создать"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/login_btn"
+                    app:layout_constraintStart_toStartOf="@+id/login_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

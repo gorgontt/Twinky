@@ -1,5 +1,6 @@
 package com.example.twinky.post
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.example.twinky.Models.Post
 import com.example.twinky.R
 import com.example.twinky.databinding.ActivityItemRecyclerBinding
 
@@ -39,8 +41,24 @@ class ItemRecyclerActivity : AppCompatActivity() {
         caption = getIntent().getStringExtra("CaptionPost").toString()
         binding.captionGroup.setText(caption)
 
+
         val imageUrl = intent.getStringExtra("ImagePost")
         Glide.with(this).load(imageUrl).placeholder(R.drawable.frog).into(binding.postImg)
+
+        binding.like.setOnClickListener {
+            binding.like.setImageResource(R.drawable.red_like)
+        }
+
+        binding.favourites.setOnClickListener {
+            binding.favourites.setImageResource(R.drawable.bookmark)
+        }
+
+        binding.send.setOnClickListener {
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "text/plain"
+            shareIntent.putExtra(Intent.EXTRA_TEXT, imageUrl)
+            startActivity(Intent.createChooser(shareIntent, "Share post link"))
+        }
 
     }
 }
