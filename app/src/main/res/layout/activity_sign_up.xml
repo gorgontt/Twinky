@@ -6,114 +6,133 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity"
-    android:background="@color/white">
+    android:background="@drawable/register_background">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/frog"
-        app:civ_border_color="@color/green"
-        app:civ_border_width="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/addImage_signUp"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/plus"
-        app:civ_border_color="@color/white"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
-        app:layout_constraintEnd_toEndOf="@+id/profile_image"
-        app:layout_constraintHorizontal_bias="0.86"
-        app:layout_constraintStart_toStartOf="@+id/profile_image"
-        app:layout_constraintTop_toTopOf="@+id/profile_image"
-        app:layout_constraintVertical_bias="0.96" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editT_name"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="32dp"
-        android:hint="name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:visibility="visible" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edT_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:hint="email"
-        app:layout_constraintEnd_toEndOf="@+id/editT_name"
-        app:layout_constraintStart_toStartOf="@+id/editT_name"
-        app:layout_constraintTop_toBottomOf="@+id/editT_name">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:visibility="visible" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editT_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:hint="password"
-        app:layout_constraintEnd_toEndOf="@+id/edT_email"
-        app:layout_constraintStart_toStartOf="@+id/edT_email"
-        app:layout_constraintTop_toBottomOf="@+id/edT_email">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            android:textColor="@color/black"
-            android:inputType="textPassword"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/sign_up_btn"
-        style="@style/Widget.Material3.Button.Icon"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="30dp"
-        android:text="Register"
-        android:textSize="18sp"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/editT_password"
-        app:layout_constraintStart_toStartOf="@+id/editT_password"
-        app:layout_constraintTop_toBottomOf="@+id/editT_password" />
-
-    <TextView
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Уже есть аккаунт? Вход "
-        android:textStyle="bold|italic"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/register_design"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_btn" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/frog"
+            app:civ_border_color="@color/green"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/addImage_signUp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/plus"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+            app:layout_constraintEnd_toEndOf="@+id/profile_image"
+            app:layout_constraintHorizontal_bias="0.86"
+            app:layout_constraintStart_toStartOf="@+id/profile_image"
+            app:layout_constraintTop_toTopOf="@+id/profile_image"
+            app:layout_constraintVertical_bias="0.96" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editT_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:hint="name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:visibility="visible" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edT_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:hint="email"
+            app:layout_constraintEnd_toEndOf="@+id/editT_name"
+            app:layout_constraintStart_toStartOf="@+id/editT_name"
+            app:layout_constraintTop_toBottomOf="@+id/editT_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:visibility="visible" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editT_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:hint="password"
+            app:layout_constraintEnd_toEndOf="@+id/edT_email"
+            app:layout_constraintStart_toStartOf="@+id/edT_email"
+            app:layout_constraintTop_toBottomOf="@+id/edT_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:visibility="visible" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/sign_up_btn"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="30dp"
+            android:text="Register"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/editT_password"
+            app:layout_constraintStart_toStartOf="@+id/editT_password"
+            app:layout_constraintTop_toBottomOf="@+id/editT_password" />
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Уже есть аккаунт? Вход "
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
