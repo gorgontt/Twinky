@@ -24,21 +24,11 @@
             android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="12dp"
             android:src="@drawable/plus_chat"
             app:layout_constraintEnd_toStartOf="@+id/logout"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/logout"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/logout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
 

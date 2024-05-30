@@ -53,12 +53,6 @@ class ChatFragment : Fragment() {
             adapter.notifyDataSetChanged()
         }
 
-        binding.logout.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val intentLog = Intent(requireContext(), SignUpActivity::class.java)
-            intentLog.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intentLog)
-        }
 
         return binding.root
     }

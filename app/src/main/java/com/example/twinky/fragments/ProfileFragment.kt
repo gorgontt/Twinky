@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.twinky.Models.User
+import com.example.twinky.SettingsActivity
 import com.example.twinky.SignUpActivity
 import com.example.twinky.adapter.ViewPagerAdapter
 import com.example.twinky.databinding.FragmentProfileBinding
@@ -35,10 +36,15 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         binding.editProfileFragProfile.setOnClickListener {
-            val intent = Intent(activity, SignUpActivity::class.java)
-            intent.putExtra("MODE", 1)
+
+            val intent = Intent(activity, SettingsActivity::class.java)
             activity?.startActivity(intent)
-            activity?.finish()
+//            activity?.finish()
+
+//            val intent = Intent(activity, SignUpActivity::class.java)
+//            intent.putExtra("MODE", 1)
+//            activity?.startActivity(intent)
+//            activity?.finish()
         }
 
         viewPagerAdapter = ViewPagerAdapter(requireActivity().supportFragmentManager)

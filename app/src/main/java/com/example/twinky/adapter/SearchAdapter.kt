@@ -3,6 +3,7 @@ package com.example.twinky.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.twinky.Models.User
@@ -54,7 +55,9 @@ class SearchAdapter (var context: Context, var userList: ArrayList<User>): Recyc
                         Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOW).document(it.documents.get(0).id).delete()
                         holder.binding.followBtn.text = "follow"
                         isfollow = false
+
                     }
+
 
             }else{
 
@@ -62,7 +65,6 @@ class SearchAdapter (var context: Context, var userList: ArrayList<User>): Recyc
                     .document().set(userList.get(position))
                 holder.binding.followBtn.text = "UnFollow"
                 isfollow = true
-
             }
 
         }

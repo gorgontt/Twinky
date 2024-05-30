@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="30dp"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".fragments.ProfileFragment"
-    android:background="@color/white">
+    tools:context=".fragments.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +28,8 @@
             android:id="@+id/edit_profile_fragProfile"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:src="@drawable/settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -61,8 +62,8 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profile_image_fragProfile"
@@ -72,9 +73,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_margin="15dp"
                 android:gravity="center"
-                android:layout_margin="15dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView"
@@ -94,16 +95,14 @@
                     android:textStyle="italic" />
 
 
-
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_margin="15dp"
                 android:gravity="center"
-                android:layout_margin="15dp">
+                android:orientation="vertical">
 
 
                 <TextView
@@ -129,9 +128,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_margin="15dp"
                 android:gravity="center"
-                android:layout_margin="15dp">
+                android:orientation="vertical">
 
 
                 <TextView
@@ -158,8 +157,6 @@
         </LinearLayout>
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -176,8 +173,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white" />
 
-    <androidx.viewpager.widget.ViewPager
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
