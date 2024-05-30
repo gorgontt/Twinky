@@ -107,35 +107,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_caption_of_group"/>
 
 
-            <TextView
-                android:id="@+id/tv_name_of_chat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                android:text="Название чата"
-                android:textSize="16dp"
-                android:paddingLeft="5dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/caption"
-                app:layout_constraintStart_toStartOf="@+id/caption"
-                app:layout_constraintTop_toBottomOf="@+id/caption" />
-
-            <EditText
-                android:id="@+id/name_chat_edT"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:hint="Введите описание группы"
-                android:background="@drawable/round_style"
-                android:padding="5dp"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="@+id/tv_name_of_chat"
-                app:layout_constraintStart_toStartOf="@+id/tv_name_of_chat"
-                app:layout_constraintTop_toBottomOf="@+id/tv_name_of_chat"/>
-
 
             <LinearLayout
                 android:id="@+id/ll"
@@ -144,10 +115,10 @@
                 android:layout_margin="10dp"
                 android:layout_marginTop="32dp"
                 android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="@+id/name_chat_edT"
+                app:layout_constraintEnd_toEndOf="@+id/caption"
                 app:layout_constraintHorizontal_bias="0.517"
-                app:layout_constraintStart_toStartOf="@+id/name_chat_edT"
-                app:layout_constraintTop_toBottomOf="@+id/name_chat_edT">
+                app:layout_constraintStart_toStartOf="@+id/caption"
+                app:layout_constraintTop_toBottomOf="@+id/caption">
 
                 <TextView
 

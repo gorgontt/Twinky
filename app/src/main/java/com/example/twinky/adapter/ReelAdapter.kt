@@ -13,6 +13,7 @@ import com.example.twinky.R
 import com.example.twinky.databinding.ChatRvBinding
 import com.example.twinky.databinding.PostRvBinding
 import com.example.twinky.databinding.ReelDgBinding
+import com.example.twinky.post.ItemChatActivity
 import com.example.twinky.post.ItemRecyclerActivity
 import com.example.twinky.utils.USER_NODE
 import com.github.marlonlom.utilities.timeago.TimeAgo
@@ -35,10 +36,17 @@ class ReelAdapter (var context: Context, var postList: ArrayList<Post>): Recycle
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
 
-        Glide.with(context).load(postList.get(position).postUtl).placeholder(R.drawable.loading).into(holder.binding.chatImage)
+        Glide.with(context).load(postList[position].postUtl).placeholder(R.drawable.loading).into(holder.binding.chatImage)
 
-        holder.binding.tvNameOfChat.text = postList.get(position).nameGroup
+        holder.binding.tvNameOfChat.text = postList[position].nameGroup
 
+        holder.binding.chat.setOnClickListener {
+
+            val intent = Intent(context, ItemChatActivity::class.java)
+            intent.putExtra("NameChat", postList[position].nameGroup)
+            intent.putExtra("ImageChat", postList[position].postUtl)
+            context.startActivity(intent)
+        }
 
     }
 }

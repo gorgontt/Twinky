@@ -70,6 +70,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:textColor="@color/black"
                 android:visibility="visible" />
         </com.google.android.material.textfield.TextInputLayout>

@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/chat_design"
     android:layout_marginTop="2dp"
+    android:id="@+id/chat"
     android:layout_marginRight="2dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
