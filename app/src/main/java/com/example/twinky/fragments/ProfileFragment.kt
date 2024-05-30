@@ -2,10 +2,10 @@ package com.example.twinky.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.twinky.Models.User
 import com.example.twinky.SignUpActivity
 import com.example.twinky.adapter.ViewPagerAdapter
@@ -13,7 +13,7 @@ import com.example.twinky.databinding.FragmentProfileBinding
 import com.example.twinky.utils.USER_NODE
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.toObject
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 

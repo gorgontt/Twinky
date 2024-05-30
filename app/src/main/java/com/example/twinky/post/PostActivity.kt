@@ -13,6 +13,7 @@ import com.example.twinky.Models.Post
 import com.example.twinky.Models.User
 import com.example.twinky.R
 import com.example.twinky.databinding.ActivityPostBinding
+import com.example.twinky.fragments.ChatFragment
 import com.example.twinky.utils.POST
 import com.example.twinky.utils.POST_FOLDER
 import com.example.twinky.utils.USER_NODE
@@ -70,6 +71,7 @@ class PostActivity : AppCompatActivity() {
             finish()
         }
 
+
         binding.createBtn.setOnClickListener {
             val caption = binding.caption.text.toString()
             val nameGroup = binding.nameOfGroupEdT.text.toString()
@@ -94,6 +96,10 @@ class PostActivity : AppCompatActivity() {
                     // Обработка ошибки
                     Log.e("PostActivity", "Error setting document", e)
                 }
+
+                startActivity(createIntentWithData())
+                finish()
+
             } else {
                 // Обработка случая, когда caption пустое или imageUrl не установлен
                 Log.e("PostActivity", "Caption is empty or imageUrl is not set")
@@ -125,5 +131,12 @@ class PostActivity : AppCompatActivity() {
         }
 
          */
+    }
+
+    private fun createIntentWithData(): Intent {
+        val intent = Intent(this, ChatFragment::class.java)
+        intent.putExtra("name_chat", binding.nameOfGroupEdT.text.toString())
+        intent.putExtra("image_url", imageUrl)
+        return intent
     }
 }
