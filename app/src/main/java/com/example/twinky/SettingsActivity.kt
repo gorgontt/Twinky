@@ -35,14 +35,14 @@ class SettingsActivity : AppCompatActivity() {
 
             val intent = Intent(this@SettingsActivity, SignUpActivity::class.java)
             startActivity(intent)
-            finish()
+            finishAffinity()
         }
 
         binding.exitBtn.setOnClickListener {
 
             val intent = Intent(this@SettingsActivity, ProfileFragment::class.java)
             startActivity(intent)
-            finish()
+            finishAffinity()
         }
 
     }
