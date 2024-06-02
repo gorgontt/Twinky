@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.twinky.Models.Post
 import com.example.twinky.R
 import com.example.twinky.databinding.ActivityItemRecyclerBinding
+import com.github.marlonlom.utilities.timeago.TimeAgo
 
 
 class ItemRecyclerActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class ItemRecyclerActivity : AppCompatActivity() {
 
     private lateinit var name: String
     private lateinit var caption: String
+    private var time: Long = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +42,11 @@ class ItemRecyclerActivity : AppCompatActivity() {
 
         caption = getIntent().getStringExtra("CaptionPost").toString()
         binding.captionGroup.setText(caption)
+
+
+        time = intent.getLongExtra("Time", 0)
+        val text = TimeAgo.using(time)
+        binding.timeItem.setText(text)
 
 
         val imageUrl = intent.getStringExtra("ImagePost")

@@ -17,7 +17,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
 
-class PostAdapter (var context: Context, var postList: ArrayList<Post>): RecyclerView.Adapter<PostAdapter.MyHolder>() {
+class PostAdapter (var context: Context, var postList: ArrayList<Post>) : RecyclerView.Adapter<PostAdapter.MyHolder>() {
+
 
     inner class MyHolder(var binding: PostRvBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -79,6 +80,7 @@ class PostAdapter (var context: Context, var postList: ArrayList<Post>): Recycle
             intent.putExtra("NamePost", postList.get(position).nameGroup)
             intent.putExtra("ImagePost", postList.get(position).postUtl)
             intent.putExtra("CaptionPost", postList.get(position).caption)
+            intent.putExtra("Time", postList.get(position).time.toLong())
             context.startActivity(intent)
         }
 
