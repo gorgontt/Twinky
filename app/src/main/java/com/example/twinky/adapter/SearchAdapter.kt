@@ -31,7 +31,7 @@ class SearchAdapter (var context: Context, var userList: ArrayList<User>): Recyc
 
         var isfollow = false
 
-        Glide.with(context).load(userList.get(position).image).placeholder(R.drawable.frog).into(holder.binding.userImage)
+        Glide.with(context).load(userList.get(position).image).placeholder(R.drawable.user_icon).into(holder.binding.userImage)
         holder.binding.name.text = userList.get(position).userName
 
         Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + FOLLOW).whereEqualTo("email", userList.get(position).email)

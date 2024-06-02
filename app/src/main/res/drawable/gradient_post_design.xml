@@ -1,20 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#1B1C20"/>
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <solid android:color="#1B1C20"/>-->
 
-    <gradient
-        android:startColor = "#72BA00FF"
-        android:endColor = "#00323232"
-        android:centerColor="#486C29"
-        android:angle = "90"
-        android:type = "linear" />
+<!--&lt;!&ndash;    <gradient&ndash;&gt;-->
+<!--&lt;!&ndash;        android:gradientRadius="200dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:endColor="#37330D8C"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:centerColor="#347722FF"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:startColor="#34E91ED5"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:type="linear" />&ndash;&gt;-->
 
-    <stroke
-        android:width="2dp"
-        >
-    </stroke>
-    <corners
-        android:radius="20dp"
-        >
-    </corners>
-</shape>
+<!--    <stroke-->
+<!--        android:color="#8BC34A"-->
+<!--        android:width="1dp"-->
+<!--        >-->
+<!--    </stroke>-->
+<!--    <corners-->
+<!--        android:radius="20dp"-->
+<!--        >-->
+<!--    </corners>-->
+<!--</shape>-->
+
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <!-- create gradient you want to use with the angle you want to use -->
+        <shape android:shape="rectangle" >
+            <corners android:radius="20dp">
+            </corners>
+            <gradient
+                android:angle="0"
+                android:endColor="#272727"
+                android:startColor="#8220B8" />
+
+        </shape>
+    </item>
+    <!-- create the stroke for top, left, bottom and right with the dp you want -->
+    <item
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
+        <shape android:shape="rectangle" >
+            <!-- fill the inside in the color you want (could also be a gradient again if you want to, just change solid to gradient and enter angle, start, maybe center, and end color) -->
+            <solid android:color="@color/grey" />
+            <corners android:radius="20dp">
+            </corners>
+        </shape>
+    </item>
+
+</layer-list>
