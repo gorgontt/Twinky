@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/grey"
+    android:background="@color/white"
     tools:context=".fragments.HomeFragment">
 
 
@@ -22,7 +22,7 @@
             android:layout_marginBottom="15dp"
             android:layout_marginRight="16dp"
             android:text="Популярное"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="italic"/>
 
@@ -45,32 +45,33 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="15dp"
             android:text="Подписки"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="italic"
             android:visibility="visible" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
-            android:background="@drawable/gradient_post_design">
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            android:backgroundTint="@color/white"
+            android:outlineAmbientShadowColor="@color/black"
+            android:outlineSpotShadowColor="@color/black"
+            app:cardMaxElevation="20dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/follow_rv"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/follow_rv" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <com.rey.material.widget.TextView
             android:id="@+id/textView44"
@@ -81,7 +82,7 @@
             android:layout_marginBottom="15dp"
             android:layout_marginRight="16dp"
             android:text="Все группы"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="italic" />
 
@@ -91,6 +92,8 @@
             android:layout_height="wrap_content"
             tools:listitem="@layout/post_rv"
             android:orientation="horizontal"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_marginBottom="40dp"/>
 

@@ -7,16 +7,18 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="3dp"
     android:layout_marginRight="3dp"
+    android:layout_marginBottom="8dp"
     app:cardCornerRadius="20dp"
-    app:cardBackgroundColor="@color/grey"
-    app:cardElevation="16dp"
+    app:cardElevation="4dp"
+   android:outlineAmbientShadowColor="@color/black"
+    android:outlineSpotShadowColor="@color/black"
     app:cardMaxElevation="20dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_pink">
+        android:background="@color/white">
 
         <com.rey.material.widget.ImageView
             android:id="@+id/post_img"
@@ -45,7 +47,7 @@
             android:shadowDy="1"
             android:shadowRadius="3"
             android:text=" TextView "
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"

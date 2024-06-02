@@ -30,7 +30,7 @@
             </corners>
             <gradient
                 android:angle="0"
-                android:endColor="#272727"
+                android:endColor="#8BC34A"
                 android:startColor="#8220B8" />
 
         </shape>
@@ -43,7 +43,7 @@
         android:top="2dp">
         <shape android:shape="rectangle" >
             <!-- fill the inside in the color you want (could also be a gradient again if you want to, just change solid to gradient and enter angle, start, maybe center, and end color) -->
-            <solid android:color="@color/grey" />
+            <solid android:color="@color/white" />
             <corners android:radius="20dp">
             </corners>
         </shape>

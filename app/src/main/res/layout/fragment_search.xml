@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@color/white"
     tools:context=".fragments.SearchFragment">
 
 
@@ -18,9 +18,8 @@
         android:background="@drawable/gradient_post_design"
         android:padding="7dp"
         android:hint="    Поиск"
-        android:textColor="@color/green"
         android:textStyle="italic"
-        android:textColorHint="@color/green"
+        android:textColorHint="@color/black"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"

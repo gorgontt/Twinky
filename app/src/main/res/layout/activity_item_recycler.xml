@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1B1C20"
+    android:background="@color/white"
     android:orientation="horizontal"
     tools:context=".post.ItemRecyclerActivity">
 
@@ -51,7 +51,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="name"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +65,7 @@
                     android:layout_marginEnd="24dp"
                     android:text="caption"
                     android:textSize="16sp"
-                    android:textColor="#B8B8B8"
+                    android:textColor="#737272"
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -103,7 +103,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="21dp"
                     android:text="Описание"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="TextView"
-                    android:textColor="#D2C7FF"
+                    android:textColor="#FF99DB"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                     app:layout_constraintStart_toEndOf="@+id/imageView3"
                     app:layout_constraintTop_toTopOf="@+id/imageView3" />
@@ -145,7 +145,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="Gorgont"
-                    android:textColor="#D2C7FF"
+                    android:textColor="#FF99DB"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView4"
                     app:layout_constraintStart_toEndOf="@+id/imageView4"
                     app:layout_constraintTop_toTopOf="@+id/imageView4" />

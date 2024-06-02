@@ -4,13 +4,13 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:gravity="center"
-    android:background="#00FFFFFF"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/user_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:src="@drawable/frog" />
 
     <TextView
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="name"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="14dp" />
 
 </LinearLayout>
