@@ -101,23 +101,17 @@ class HomeFragment : Fragment() {
                 var post: Post = i.toObject<Post>()!!
                 tempList.add(post)
             }
-            postList.addAll(tempList)
+
+            for (i in tempList.indices.reversed()) {
+                postList.add(0, tempList[i])
+            }
+
+            //postList.addAll(tempList)
             adapter.notifyDataSetChanged()
         }
 
-    /*    binding.exitBtn.setOnClickListener {
-            val intent = Intent(activity, SignUpActivity::class.java)
-            activity?.startActivity(intent)
-            activity?.finish()
-        }
-
-     */
         return binding.root
 
-
-    }
-
-    companion object {
 
     }
 

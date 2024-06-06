@@ -19,6 +19,9 @@ import com.google.firebase.ktx.Firebase
 class MyGroupsFragment : Fragment() {
 
     private lateinit var binding: FragmentMyGroupsBinding
+    private var countOfItems = 0
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,12 +50,13 @@ class MyGroupsFragment : Fragment() {
             postList.addAll(tempList)
             adapter.notifyDataSetChanged()
 
+
+
         }
+
+
 
         return binding.root
     }
 
-    companion object {
-
-    }
 }

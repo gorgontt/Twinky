@@ -33,7 +33,7 @@ class SettingsActivity : AppCompatActivity() {
 
         binding.exitFromAccount.setOnClickListener {
 
-            val intent = Intent(this@SettingsActivity, SignUpActivity::class.java)
+            val intent = Intent(this@SettingsActivity, LoginActivity::class.java)
             startActivity(intent)
             finishAffinity()
         }

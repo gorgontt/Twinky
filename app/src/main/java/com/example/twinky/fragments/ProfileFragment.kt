@@ -23,6 +23,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
     private lateinit var viewPagerAdapter: ViewPagerAdapter
+    private var groupCount = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,6 +35,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentProfileBinding.inflate(inflater, container, false)
+
 
         binding.editProfileFragProfile.setOnClickListener {
 
@@ -75,5 +77,10 @@ class ProfileFragment : Fragment() {
                 Picasso.get().load(user.image).into(binding.profileImageFragProfile)
             }
         }
+
     }
+
+
 }
+
+
