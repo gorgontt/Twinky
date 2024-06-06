@@ -10,17 +10,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.twinky.HomeActivity
 import com.example.twinky.Models.Post
-import com.example.twinky.Models.User
 import com.example.twinky.R
 import com.example.twinky.databinding.ActivityPostBinding
-import com.example.twinky.fragments.ChatFragment
+import com.example.twinky.fragments.ReelFragment
 import com.example.twinky.utils.POST
 import com.example.twinky.utils.POST_FOLDER
-import com.example.twinky.utils.USER_NODE
 import com.example.twinky.utils.uploadImage
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class PostActivity : AppCompatActivity() {
@@ -89,11 +86,9 @@ class PostActivity : AppCompatActivity() {
                         startActivity(Intent(this@PostActivity, HomeActivity::class.java))
                         finish()
                     }.addOnFailureListener { e ->
-                        // Обработка ошибки
                         Log.e("PostActivity", "Error setting document", e)
                     }
                 }.addOnFailureListener { e ->
-                    // Обработка ошибки
                     Log.e("PostActivity", "Error setting document", e)
                 }
 
@@ -101,7 +96,6 @@ class PostActivity : AppCompatActivity() {
                 finish()
 
             } else {
-                // Обработка случая, когда caption пустое или imageUrl не установлен
                 Log.e("PostActivity", "Caption is empty or imageUrl is not set")
             }
         }
@@ -134,7 +128,8 @@ class PostActivity : AppCompatActivity() {
     }
 
     private fun createIntentWithData(): Intent {
-        val intent = Intent(this, ChatFragment::class.java)
+
+        val intent = Intent(this, ReelFragment::class.java)
         intent.putExtra("name_chat", binding.nameOfGroupEdT.text.toString())
         intent.putExtra("image_url", imageUrl)
         return intent
