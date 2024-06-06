@@ -1,6 +1,9 @@
 package com.example.twinky.post
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -30,7 +33,34 @@ class ItemChatActivity : AppCompatActivity() {
 
         val imageUrl = intent.getStringExtra("ImageChat")
         Glide.with(this).load(imageUrl).placeholder(R.drawable.frog).into(binding.groupImage)
+
+        binding.sendMessage.setOnClickListener {
+            sendMessage()
+        }
+
+        binding.editTextText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+                if (s.isNullOrEmpty()) {
+                    binding.sendMessage.setImageResource(R.drawable.send)
+                } else {
+                    binding.sendMessage.setImageResource(R.drawable.send2)
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
     }
 
-
+    private fun sendMessage() {
+        val message = binding.editTextText.text.toString()
+        if (message.isNotEmpty()) {
+            binding.tvMessage.text = message
+            binding.constraint.visibility = View.VISIBLE
+            binding.editTextText.text.clear()
+        }
+    }
 }
+

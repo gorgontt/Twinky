@@ -19,12 +19,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="26dp"
-            android:layout_marginBottom="15dp"
             android:layout_marginRight="16dp"
+            android:layout_marginBottom="15dp"
             android:text="Популярное"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="italic"/>
+            android:textStyle="italic"
+            app:fontFamily="sans-serif-medium" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/popular_rv"
@@ -48,7 +49,8 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="italic"
-            android:visibility="visible" />
+            android:visibility="visible"
+            app:fontFamily="sans-serif-black" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -79,12 +81,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="26dp"
-            android:layout_marginBottom="15dp"
             android:layout_marginRight="16dp"
+            android:layout_marginBottom="15dp"
             android:text="Все группы"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            app:fontFamily="serif" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/post_rv"

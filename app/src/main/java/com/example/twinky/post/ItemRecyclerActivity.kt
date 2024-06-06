@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.example.twinky.Models.Post
 import com.example.twinky.R
+import com.example.twinky.adapter.ReelAdapter
 import com.example.twinky.databinding.ActivityItemRecyclerBinding
 import com.github.marlonlom.utilities.timeago.TimeAgo
 
@@ -25,6 +26,7 @@ class ItemRecyclerActivity : AppCompatActivity() {
     private lateinit var name: String
     private lateinit var caption: String
     private var time: Long = 0
+    private var isLiked = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +55,12 @@ class ItemRecyclerActivity : AppCompatActivity() {
         Glide.with(this).load(imageUrl).placeholder(R.drawable.frog).into(binding.postImg)
 
         binding.like.setOnClickListener {
-            binding.like.setImageResource(R.drawable.red_like)
+            if (isLiked) {
+                binding.like.setImageResource(R.drawable.like)
+            } else {
+                binding.like.setImageResource(R.drawable.red_like)
+            }
+            isLiked = !isLiked
         }
 
         binding.favourites.setOnClickListener {
@@ -67,7 +74,13 @@ class ItemRecyclerActivity : AppCompatActivity() {
             startActivity(Intent.createChooser(shareIntent, "Share post link"))
         }
 
+        binding.joinGroup.setOnClickListener {
+            val intent = Intent(this, ItemChatActivity::class.java)
+            intent.putExtra("NameChat", name)
+            intent.putExtra("ImageChat", imageUrl)
+            startActivity(intent)
+        }
+
     }
 }
-
 

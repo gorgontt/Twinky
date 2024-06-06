@@ -48,5 +48,6 @@ class ReelAdapter (var context: Context, var postList: ArrayList<Post>): Recycle
             context.startActivity(intent)
         }
 
+
     }
 }
