@@ -1,5 +1,6 @@
 package com.example.twinky.Models
 
+
 class MovieModel(title: String?, imageResId: Int) {
     private var title: String
     private var imageResId: Int

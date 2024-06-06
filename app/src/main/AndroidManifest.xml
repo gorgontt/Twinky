@@ -6,12 +6,15 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/twinky_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/twinky_icon_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.Twinky"
         tools:targetApi="31">
+        <activity
+            android:name=".post.PopularItemRecyclerActivity"
+            android:exported="false" />
         <activity
             android:name=".post.ItemChatActivity"
             android:exported="false" />
@@ -39,12 +42,6 @@
             android:label="@string/title_activity_home" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Registration.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Registration.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

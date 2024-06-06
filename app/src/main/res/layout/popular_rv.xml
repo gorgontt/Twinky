@@ -57,6 +57,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/open_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/oval_design"

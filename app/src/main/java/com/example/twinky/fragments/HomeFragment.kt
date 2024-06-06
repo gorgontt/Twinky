@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
 
 
 
-        popularAdapter = PopularRvAdapter(popularList)
+        popularAdapter = PopularRvAdapter(popularList, requireContext())
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.popularRv.itemAnimator = DefaultItemAnimator()
         //binding.popularRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
