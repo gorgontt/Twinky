@@ -177,7 +177,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginRight="11dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="500dp"
                 android:outlineAmbientShadowColor="@color/black"
                 android:outlineSpotShadowColor="@color/black"
                 app:cardCornerRadius="20dp"
