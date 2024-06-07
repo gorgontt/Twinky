@@ -2,18 +2,16 @@ package com.example.twinky.post
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
-import com.example.twinky.Models.Post
 import com.example.twinky.R
-import com.example.twinky.adapter.ReelAdapter
 import com.example.twinky.databinding.ActivityItemRecyclerBinding
 import com.github.marlonlom.utilities.timeago.TimeAgo
+import com.google.type.Color
 
 
 class ItemRecyclerActivity : AppCompatActivity() {
@@ -76,6 +74,10 @@ class ItemRecyclerActivity : AppCompatActivity() {
         }
 
         binding.joinGroup.setOnClickListener {
+            binding.joinGroup.setBackgroundColor(ContextCompat.getColor(this, R.color.grey_light))
+            binding.openChatBtn.text = " Вы вступили в группу "
+            binding.openChatBtn.setTextColor(ContextCompat.getColor(this, R.color.green))
+
             val intent = Intent(this, ItemChatActivity::class.java)
             intent.putExtra("NameChat", name)
             intent.putExtra("ImageChat", imageUrl)
