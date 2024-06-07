@@ -51,7 +51,7 @@ class ProfileFragment : Fragment() {
 
         viewPagerAdapter = ViewPagerAdapter(requireActivity().supportFragmentManager)
         viewPagerAdapter.addFragment(MyGroupsFragment(), "Мои группы")
-        viewPagerAdapter.addFragment(MyReelsFragment(), "Другие группы")
+        //viewPagerAdapter.addFragment(MyReelsFragment(), "Другие группы")
         binding.viewPager.adapter = viewPagerAdapter
         binding.tabLayout.setupWithViewPager(binding.viewPager)
 

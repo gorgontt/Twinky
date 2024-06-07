@@ -24,8 +24,7 @@
             android:text="Популярное"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="italic"
-            app:fontFamily="sans-serif-medium" />
+            android:textStyle="italic"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/popular_rv"
@@ -49,8 +48,7 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="italic"
-            android:visibility="visible"
-            app:fontFamily="sans-serif-black" />
+            android:visibility="visible" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -86,8 +84,7 @@
             android:text="Все группы"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="italic"
-            app:fontFamily="serif" />
+            android:textStyle="italic" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/post_rv"

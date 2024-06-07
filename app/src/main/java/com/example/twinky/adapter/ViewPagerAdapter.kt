@@ -26,4 +26,5 @@ class ViewPagerAdapter(fm: FragmentManager): FragmentPagerAdapter(fm, BEHAVIOR_R
         fragmentList.add(fragment)
         titleList.add(title)
     }
+
 }
