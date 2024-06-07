@@ -8,6 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.twinky.ChatActivity
 import com.example.twinky.HomeActivity
 import com.example.twinky.Models.Post
 import com.example.twinky.Models.User
@@ -89,11 +90,9 @@ class PostActivity : AppCompatActivity() {
                         startActivity(Intent(this@PostActivity, HomeActivity::class.java))
                         finish()
                     }.addOnFailureListener { e ->
-                        // Обработка ошибки
                         Log.e("PostActivity", "Error setting document", e)
                     }
                 }.addOnFailureListener { e ->
-                    // Обработка ошибки
                     Log.e("PostActivity", "Error setting document", e)
                 }
 
@@ -101,7 +100,6 @@ class PostActivity : AppCompatActivity() {
                 finish()
 
             } else {
-                // Обработка случая, когда caption пустое или imageUrl не установлен
                 Log.e("PostActivity", "Caption is empty or imageUrl is not set")
             }
         }
@@ -134,7 +132,7 @@ class PostActivity : AppCompatActivity() {
     }
 
     private fun createIntentWithData(): Intent {
-        val intent = Intent(this, ChatFragment::class.java)
+        val intent = Intent(this, ChatActivity::class.java)
         intent.putExtra("name_chat", binding.nameOfGroupEdT.text.toString())
         intent.putExtra("image_url", imageUrl)
         return intent

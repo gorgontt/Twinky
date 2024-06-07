@@ -57,4 +57,15 @@ class ChatFragment : Fragment() {
         return binding.root
     }
 
+    companion object {
+        fun newInstance(nameChat: String?, imageUrl: String?): ChatFragment {
+            val fragment = ChatFragment()
+            val args = Bundle()
+            args.putString("name_chat", nameChat ?: "")
+            args.putString("image_url", imageUrl ?: "")
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
 }
